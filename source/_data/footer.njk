@@ -1,0 +1,17 @@
+<!-- 网站运行时间的设置 -->
+<span id="blogRuntime">载入天数...</span>
+<script>
+    var now = new Date();
+    function createTime() {
+        var grt= new Date("12/06/2021 17:21:45");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dNum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dNum); hNum = Math.floor(hours);
+        if(String(hNum).length ==1 ){hNum = "0" + hNum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dNum) - (60 * hNum);
+        mNum = Math.floor(minutes); if(String(mNum).length ==1 ){mNum = "0" + mNum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dNum) - (60 * 60 * hNum) - (60 * mNum);
+        sNum = Math.round(seconds); if(String(sNum).length ==1 ){sNum = "0" + sNum;}
+        document.getElementById("blogRuntime").innerHTML = "本站已安全运行 "+dNum+" 天 " + hNum + " 小时 " + mNum + " 分 " + sNum + " 秒";
+}
+setInterval("createTime()",250);
+</script>
